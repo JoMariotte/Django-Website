@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <img src="media/img/shanghai.jpg" alt="City" style="width:100%;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 align="center">Recent Posts</h1>
+            </div>
+
+            {% for post in posts %}
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <a href="/post/{{ post.slug }}"><img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap"></a>
+                        <div class="card-body">
+                            <p class="card-text">{{ post.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
